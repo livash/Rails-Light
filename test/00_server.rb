@@ -6,20 +6,20 @@ require 'rails_lite'
 # http://www.ruby-doc.org/stdlib-2.0/libdoc/webrick/rdoc/WEBrick/HTTPRequest.html
 # http://www.ruby-doc.org/stdlib-2.0/libdoc/webrick/rdoc/WEBrick/HTTPResponse.html
 # http://www.ruby-doc.org/stdlib-2.0/libdoc/webrick/rdoc/WEBrick/Cookie.html
-server = WEBrick::HTTPServer.new :Port => 3000
+server = WEBrick::HTTPServer.new :Port => 8080
 trap('INT') { server.shutdown }
 
 class MyController < ControllerBase
   def go
-    redirect_to("http://google.com")
+    # redirect_to("http://google.com")
 
-    # after you have template rendering, uncomment:
-#    render :show
+    # # after you have template rendering, uncomment:
+  #  render :show
 
     # after you have sessions going, uncomment:
-#    session["count"] ||= 0
-#    session["count"] += 1
-#    render :counting_show
+   session["count"] ||= 0
+   session["count"] += 1
+   render :counting_show
   end
 end
 
